@@ -63,3 +63,61 @@ Boxes going out of the image boundary are removed. After that top K boxes(top ob
       <td align = "center"> RPN Regressor Loss Curve</td>
   </tr>
 </table>
+
+## Part B: Training second stage networks
+The RPN trained in the Part A is a simpler version that keeps all the necessary components. Due to it's simplicity, for the second stage, a pretrained Feature Pyramid Network and RPN are used. Top 200 proposals from RPN are kept for the second stage\
+**ROI** **align:** torchvision.ops.RoiAlign is used for this\
+**Intermediate** **Layer:** 2 linear layers with ReLU activation. Output size of both layers: 1024\
+**Box** **Head** **Classifier:** Linear layer with output size C+1 followed by softmax\
+**Box** **Head** **Regressor:** Linear layer with output 4*C
+
+### Losses
+**Classifier's** **Loss:** Cross Entropy Loss/
+**Regressor** **Loss:** Smooth L1 loss **Sampling:** Similar to RPN with a small change. For this case, the ratio of object to no-object boxes as close to 3:1
+
+### Post Processing
+Boxes going out of the image boundary and having object confidence lower than 0.5 are removed. After that top K boxes(top objectness score boxes) are kept which is followed by Non-Maximum Suppression for each class independently. The top N boxes after NMS are then kept as final proposals.
+
+### Results
+<table>
+  <tr>
+      <td align = "center"> <img src="./Results/Results Part b/1. Pre NMS 1.png"> </td>
+      <td align = "center"> <img src="./Results/Results Part b/2. Post NMS 1.png"> </td>
+  </tr>
+  <tr>
+      <td align = "center"> <img src="./Results/Results Part b/3. Pre NMS 2.png"> </td>
+      <td align = "center"> <img src="./Results/Results Part b/4. Post NMS 2.png"> </td>
+  </tr>
+  <tr>
+      <td align = "center"> Pre NMS</td>
+      <td align = "center"> POST NMS</td>
+  </tr>
+</table>
+
+### Loss curves:
+<table>
+  <tr>
+      <td align = "center"> <img src="./Results/Results Part b/5. Classifier Loss.png"> </td>
+      <td align = "center"> <img src="./Results/Results Part b/6. Regressor Loss.png"> </td>
+  </tr>
+  <tr>
+      <td align = "center"> Classifier Loss Curve</td>
+      <td align = "center"> Regressor Loss Curve</td>
+  </tr>
+</table>
+### Precision Recall Curve:
+**Average** **Precision** **Values**:\
+1. Vehicle: 0.7057
+2. Person:  0.7585
+3. Animal:  0.8233
+<table>
+  <tr>
+      <td align = "center"> <img src="./Results/Results Part b/7. Precision Recall plots.png"> </td>
+  </tr>
+  <tr>
+      <td align = "center"> Precision Recall curves</td>
+  </tr>
+</table>
+
+
+
