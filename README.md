@@ -59,7 +59,7 @@ Boxes going out of the image boundary are removed. After that top K boxes(top ob
       <td align = "center"> <img src="./Results/7. Regressor Loss.png"> </td>
   </tr>
   <tr>
-      <td align = "center"> Classifier Loss Curve</td>
-      <td align = "center"> Regressor Loss Curve</td>
+      <td align = "center"> RPN Classifier Loss Curve</td>
+      <td align = "center"> RPN Regressor Loss Curve</td>
   </tr>
 </table>
