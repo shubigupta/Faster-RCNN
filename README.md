@@ -29,7 +29,8 @@ No. of Anchors used: 1
 **RPN Regressor Head:**  Kernel Size: (1,1,4), Padding = Same
 
 ### RPN Losses:
-**Classifier** **Loss:** Binary Cross Entropy.
+**Classifier** **Loss:** Binary Cross Entropy
+
 **Regressor** Loss:**  Smooth L1 Loss. **Note:** To minimize the bias towards negative classes, the positive(object) and negative(not object) anchors are subsampled in a ratio as close as possible to 1:1. Also, only a constant size minibatch is used for training regressor.
 
 ### Post Processing:
@@ -51,16 +52,6 @@ Boxes going out of the image boundary are removed. After that top K boxes(top ob
   </tr>
 </table>
 
-<table>
-  <tr>
-      <td align = "center"> <img src="./Results/6. Confidence error.png"> </td>
-      <td align = "center"> <img src="./Results/7. Localisation and classification error.png"> </td>
-  </tr>
-  <tr>
-      <td align = "center"> Confidence error </td>
-      <td align = "center"> Localisation and Classification error </td>
-  </tr>
-</table>
 ### Loss curves:
 <table>
   <tr>
