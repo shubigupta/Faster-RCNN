@@ -105,6 +105,7 @@ Boxes going out of the image boundary and having object confidence lower than 0.
       <td align = "center"> Regressor Loss Curve</td>
   </tr>
 </table>
+
 ### Precision Recall Curve:
 **Average** **Precision** **Values**:\
 1. Vehicle: 0.7057
