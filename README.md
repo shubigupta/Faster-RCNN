@@ -22,9 +22,11 @@ No. of Anchors used: 1
   </tr>
 </table>
 
-**Intermediate** **Layer:**  Kernel Size: (3,3,256), Batch Norm, ReLU, Padding = Same.
-**RPN Classifier Head:** Kernel Size: (1,1,1), Sigmoid, Padding = Same.
-**RPN Regressor Head:**  Kernel Size: (1,1,4), Padding = Same.
+**Intermediate** **Layer:**  Kernel Size: (3,3,256), Batch Norm, ReLU, Padding = Same
+
+**RPN Classifier Head:** Kernel Size: (1,1,1), Sigmoid, Padding = Same
+
+**RPN Regressor Head:**  Kernel Size: (1,1,4), Padding = Same
 
 ### RPN Losses:
 **Classifier** **Loss:** Binary Cross Entropy.
