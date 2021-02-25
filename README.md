@@ -25,11 +25,11 @@ No. of Anchors used: 1
 **RPN Classifier Head:** Kernel Size: (1,1,1), Sigmoid, Padding = Same
 **RPN Regressor Head:**  Kernel Size: (1,1,4), Padding = Same
 
-###RPN Losses:
+### RPN Losses:
 **Classifier Loss:** Binary Cross Entropy
 **Regressor Loss:**  Smooth L1 Loss. **Note:** To minimize the bias towards negative classes, the positive(object) and negative(not object) anchors are subsampled in a ratio as close as possible to 1:1. Also, only a constant size minibatch is used for training regressor.
 
-###Post Processing:
+### Post Processing:
 Boxes going out of the image boundary are removed. After that top K boxes(top objectness score boxes) are kept which is followed by Non-Maximum Suppression. The top N boxes after NMS are then kept as final proposals.
 
 ### Results:
